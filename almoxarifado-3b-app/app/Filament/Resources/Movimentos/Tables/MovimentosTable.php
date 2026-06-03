@@ -15,6 +15,14 @@ class MovimentosTable
     {
         return $table
             ->columns([
+                TextColumn::make('produto.nome')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('quantidade')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('tipo')
+                    ->badge(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -23,14 +31,6 @@ class MovimentosTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('produto_id')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('quantidade')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('tipo')
-                    ->badge(),
             ])
             ->filters([
                 //
